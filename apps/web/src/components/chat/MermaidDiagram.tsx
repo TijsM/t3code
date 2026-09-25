@@ -36,8 +36,6 @@ export function MermaidDiagram({
   if (svg === null) return children;
   return (
     <div
-      role="img"
-      aria-label="Mermaid diagram"
       className="chat-markdown-mermaid flex justify-center overflow-x-auto px-3 pt-1 pb-3"
       // Mermaid runs its own DOMPurify pass at the `strict` security level set in lib/mermaid.
       dangerouslySetInnerHTML={{ __html: svg }}
