@@ -2289,6 +2289,7 @@ function areMarkdownFileLinkPropsEqual(
   );
 }
 
+/** State for one rendered message: the context its node renderers read, plus copy and media handlers. */
 function useChatMarkdownState({
   text,
   cwd,
@@ -3271,6 +3272,7 @@ const CHAT_MARKDOWN_COMPONENTS = {
   details: function MarkdownDetailsRenderer({ node: _node, children, open: detailsOpen }) {
     return <MarkdownDetails open={detailsOpen}>{children}</MarkdownDetails>;
   },
+  /** Fenced code: a highlighted block, or a mermaid diagram when the renderer opts in. */
   pre: function MarkdownPre({ node, children, ...props }) {
     const { resolvedTheme, diffThemeName, isStreaming, onRunShellCommand, text, mermaidDiagrams } =
       use(ChatMarkdownRendererContext);

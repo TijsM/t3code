@@ -6,6 +6,7 @@ export type MermaidTheme = "light" | "dark";
 // expensive part. Keyed by the source itself: a hash collision would draw the wrong diagram.
 const renderedSvgCache = new LRUCache<string>(64, 8 * 1024 * 1024);
 
+/** The SVG from an earlier render of this diagram in this theme, so remounts draw at once. */
 export function getCachedMermaidSvg(code: string, theme: MermaidTheme): string | null {
   return renderedSvgCache.get(`${theme}\n${code}`);
 }
